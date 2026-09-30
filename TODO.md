@@ -1,0 +1,5 @@
+- Choisir sa sortie (stderr, stdout, un flux etc...)
+- Réglage des couleurs ANSI
+- Chaque appel à log réalise un localtime --> très couteux
+- Filtrage des logs "bon marché", à améliorer !
+- Suppresion à la compilation des logs inutiles (va nécessite un peu de restructuration)
