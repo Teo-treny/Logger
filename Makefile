@@ -3,6 +3,7 @@ CC = gcc
 CC_WIN = x86_64-w64-mingw32-gcc
 AR = ar
 AR_WIN = x86_64-w64-mingw32-ar
+AR_NAME = logger
 CFLAGS = -Wall -Wextra -fPIC -I./include -I./include/logger
 
 # Chemins
@@ -45,6 +46,9 @@ linux : clean prebuild $(STATIC_LIB) $(SHARED_LIB)
 	@cp $(DIR_INCLUDE)/logger.h $(DIR_BUILD)/linux/logger/include
 
 
+package : clean
+	zip -r $(AR_NAME).zip *
+
 test : prebuild $(TEST)
 
 prebuild :
@@ -64,3 +68,4 @@ $(DIR_BUILD)/example1.e : $(DIR_EXAMPLE)/example1.c $(STATIC_LIB)
 
 clean :
 	rm -rf $(DIR_BUILD)
+	rm -rf $(AR_NAME).zip
